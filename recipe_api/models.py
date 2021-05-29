@@ -21,7 +21,7 @@ class Recipe(models.Model):
     title=models.CharField(max_length=200)
     ingredients=models.ManyToManyField('ingredient')
     procedure=models.TextField()
-    # author=models.ForeignKey(User, blank=True,on_delete=models.CASCADE)
+    author=models.OneToOneField(User, blank=True,on_delete=models.CASCADE)
     created_at=models.DateTimeField(auto_now_add=True)
     time_to_make=models.IntegerField(default=0)
     tags=models.ManyToManyField('Tag')
